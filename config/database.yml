@@ -1,0 +1,19 @@
+# config/database.yml
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: helix_home_development
+
+test:
+  <<: *default
+  database: helix_home_test
+
+production:
+  <<: *default
+  database: helix_home_production
+  username: helix_home
+  password: <%= ENV['HELIX_HOME_DATABASE_PASSWORD'] %>
